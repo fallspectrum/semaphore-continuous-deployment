@@ -21,9 +21,9 @@ build: $(DOCKER)
 
 .PHONY: test-cloudformation
 test-cloudformation:
-	aws --region eu-west-1 cloudformation \
+	aws --region us-west-2 cloudformation \
 		validate-template --template-body file://cloudformation/prereqs.json
-	aws --region eu-west-1 cloudformation \
+	aws --region us-west-2 cloudformation \
 		validate-template --template-body file://cloudformation/app.json
 
 .PHONY: test-image
