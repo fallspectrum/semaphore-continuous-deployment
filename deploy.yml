@@ -27,7 +27,8 @@
       changed_when: False
       register: artifact_hash
 
-    - debug: "prereqs.stack_outputs.Repository= {{ prereqs.stack_outputs.Repository }} artifact_hash.stdout={{ artifact_hash.stdout }}"
+    - debug:
+        msg: "prereqs.stack_outputs.Repository= {{ prereqs.stack_outputs.Repository }} artifact_hash.stdout={{ artifact_hash.stdout }}"
 
     - name: Push Image to ECR
       command: "make push UPSTREAM={{ prereqs.stack_outputs.Repository }}:{{ artifact_hash.stdout }}"
